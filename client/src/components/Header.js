@@ -1,12 +1,12 @@
 import React from 'react'
-import userImage from '../../img/userImage.jpg'
+import userImage from '../img/userImage.jpg'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    //  Main Header
     <header className='main-header'>
       {/* Logo  */}
-      <a href='index2.html' className='logo'>
+      <Link to='/' className='logo'>
         {/* mini logo for sidebar mini 50x50 pixels  */}
         <span className='logo-mini'>
           <b>A</b>LT
@@ -15,7 +15,7 @@ const Header = () => {
         <span className='logo-lg'>
           <b>Admin</b>LTE
         </span>
-      </a>
+      </Link>
 
       {/* Header Navbar  */}
       <nav className='navbar navbar-static-top' role='navigation'>

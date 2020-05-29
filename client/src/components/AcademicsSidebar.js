@@ -1,21 +1,21 @@
 import React from 'react'
-import userImage from '../../img/userImage.jpg'
+import { NavLink, Link } from 'react-router-dom'
+import userImage from '../img/userImage.jpg'
 
 const AcademicsSidebar = () => {
   return (
-    //  Left side column. contains the logo and sidebar
     <aside className='main-sidebar'>
       {/* sidebar: style can be found in sidebar.less  */}
       <section className='sidebar'>
         {/* Sidebar Menu  */}
         <ul className='sidebar-menu' data-widget='tree'>
           <li className='active'>
-            <a href='#'>
+            <NavLink exact to='/'>
               <i className='fa fa-dashboard'></i> <span>Dashboard</span>
-            </a>
+            </NavLink>
           </li>
           <li className='treeview'>
-            <a href='#'>
+            <a>
               <i className='fa fa-building-o'></i>
               <span>Academics</span>
               <span className='pull-right-container'>
@@ -24,74 +24,74 @@ const AcademicsSidebar = () => {
             </a>
             <ul className='treeview-menu'>
               <li>
-                <a href='#'>
+                <NavLink exact to='/subjects'>
                   <i className='fa fa-book'></i>
                   <span>Subjects</span>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='#'>
+                <NavLink exact to='/sections'>
                   <i className='fa fa-building-o'></i>
-                  <span>Departements</span>
-                </a>
+                  <span>Sections</span>
+                </NavLink>
               </li>
               <li>
-                <a href='#'>
+                <NavLink exact to='/class'>
                   <i className='fa fa-sitemap'></i>
                   <span>Class</span>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='#'>
+                <NavLink exact to='/exams'>
                   <i className='fa fa-pencil'></i>
                   <span>Exams</span>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='#'>
+                <NavLink exact to='/grade'>
                   <i className='fa fa-signal'></i>
                   <span>Grade</span>
-                </a>
+                </NavLink>
               </li>
             </ul>
           </li>
           {/* Students */}
           <li className='treeview'>
-            <a href='#'>
+            <NavLink exact to='/students'>
               <i className='fa fa-users'></i> <span>Students</span>
-            </a>
+            </NavLink>
           </li>
           <li className='treeview'>
-            <a href='#'>
+            <NavLink exact to='/teachers'>
               <i className='fa fa-users'></i> <span>Teachers</span>
-            </a>
+            </NavLink>
           </li>
 
           {/* Results */}
           <li className='treeview'>
-            <a href='#'>
+            <a>
               <i className='fa fa-graduation-cap'></i>
-              <span>Academics</span>
+              <span>Results</span>
               <span className='pull-right-container'>
                 <i className='fa fa-angle-left pull-right'></i>
               </span>
             </a>
             <ul className='treeview-menu'>
               <li>
-                <a href='#'>
+                <NavLink exact to='/results'>
                   <i className='fa fa-graduation-cap'></i>
                   <span>Results</span>
-                </a>
-                <a href='#'>
+                </NavLink>
+                <NavLink exact to='/result-templates'>
                   <i className='fa fa-graduation-cap'></i>
                   <span>Result Tempalates</span>
-                </a>
+                </NavLink>
               </li>
             </ul>
           </li>
           {/* Settings */}
           <li className='treeview'>
-            <a href='#'>
+            <a>
               <i className='fa fa-gear'></i>
               <span>Settings</span>
               <span className='pull-right-container'>
@@ -100,16 +100,16 @@ const AcademicsSidebar = () => {
             </a>
             <ul className='treeview-menu'>
               <li>
-                <a href='#'>
+                <NavLink exact to='/settings'>
                   <i className='fa fa-link'></i>
                   <span>Settings</span>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='#'>
+                <NavLink exact to='/backup-restore'>
                   <i className='fa fa-link'></i>
                   <span>Backup and Restore</span>
-                </a>
+                </NavLink>
               </li>
             </ul>
           </li>

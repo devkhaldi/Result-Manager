@@ -1,31 +1,34 @@
 import React, { useEffect } from 'react'
-import logo from './logo.svg'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Header from './components/Header'
+import AcademicsSidebar from './components/AcademicsSidebar'
+import Content from './components/Content'
+import Dashboard from './pages/academics/Dashboad'
+import Subjects from './pages/academics/Subjects'
+import Sections from './pages/academics/Sections'
+import Class from './pages/academics/Class'
+import Exams from './pages/academics/Exams'
+import Grade from './pages/academics/Grade'
+import Students from './pages/academics/Students'
+import Teachers from './pages/academics/Teachers'
+import Footer from './components/Footer'
 import './App.css'
-import Header from './components/layout/Header'
-import AcademicsSidebar from './components/layout/AcademicsSidebar'
-import Content from './components/layout/Content'
-import Footer from './components/layout/Footer'
 
-function App({}) {
-  useEffect(() => {
-    console.log('Component rendred')
-  }, [])
+function App() {
   return (
-    <React.Fragment>
-      <Header />
-      <AcademicsSidebar />
-      <Content
-        pageHeader='Dashboard'
-        description='Control Panel'
-        breadcrumbs={['Home', 'Dashboard', 'test']}>
-        <h1>Bonjour tout le monde</h1>
-      </Content>
-      <Footer />
-      {/* /.control-sidebar
-          Add the sidebar's background. This div must be placed
-          immediately after the control sidebar */}
-      <div className='control-sidebar-bg'></div>
-    </React.Fragment>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/' component={Dashboard} />
+        <Route exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/subjects' component={Subjects} />
+        <Route exact path='/sections' component={Sections} />
+        <Route exact path='/class' component={Class} />
+        <Route exact path='/exams' component={Exams} />
+        <Route exact path='/grade' component={Grade} />
+        <Route exact path='/students' component={Students} />
+        <Route exact path='/teachers' component={Teachers} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 

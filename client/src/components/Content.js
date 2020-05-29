@@ -1,19 +1,21 @@
 import React from 'react'
 
-const Content = ({ pageHeader, description = '', breadcrumbs = [], children }) => {
+const Content = ({ icon, pageHeader, description = '', breadcrumbs = [], children }) => {
   // generate breadcumbs
   const breadcrumbContent = breadcrumbs.length
     ? breadcrumbs.map((item, index) =>
         index === 0 ? (
-          <li>
+          <li key={index}>
             <a href='#'>
               <i className='fa fa-dashboard'></i> {item}
             </a>
           </li>
         ) : index === breadcrumbs.length - 1 ? (
-          <li className='active'>{item}</li>
+          <li key={index} className='active'>
+            {item}
+          </li>
         ) : (
-          <li>{item}</li>
+          <li key={index}>{item}</li>
         )
       )
     : null
@@ -23,6 +25,7 @@ const Content = ({ pageHeader, description = '', breadcrumbs = [], children }) =
       {/* Content Header (Page header)  */}
       <section className='content-header'>
         <h1>
+          {icon !== '' && <i className={icon} style={{ marginRight: '7px' }}></i>}
           {pageHeader}
           <small>{description}</small>
         </h1>
