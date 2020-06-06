@@ -6,7 +6,7 @@ const Content = ({ icon, pageHeader, description = '', breadcrumbs = [], childre
     ? breadcrumbs.map((item, index) =>
         index === 0 ? (
           <li key={index}>
-            <a href='#'>
+            <a>
               <i className='fa fa-dashboard'></i> {item}
             </a>
           </li>
@@ -22,7 +22,6 @@ const Content = ({ icon, pageHeader, description = '', breadcrumbs = [], childre
 
   return (
     <div className='content-wrapper'>
-      {/* Content Header (Page header)  */}
       <section className='content-header'>
         <h1>
           {icon !== '' && <i className={icon} style={{ marginRight: '7px' }}></i>}
@@ -31,10 +30,7 @@ const Content = ({ icon, pageHeader, description = '', breadcrumbs = [], childre
         </h1>
         <ol className='breadcrumb'>{breadcrumbContent}</ol>
       </section>
-
-      {/* Main content  */}
       <section className='content container-fluid'>{children}</section>
-      {/* /.content  */}
     </div>
   )
 }

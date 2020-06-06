@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import userImage from '../img/userImage.jpg'
 
 const AcademicsSidebar = () => {
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.url = 'js/adminlte.js'
-    document.querySelector('body').appendChild(script)
-  }, [])
+  // control sidebar treeview
+  // activeTreeView values : '',academics,results, settings
+  const [activeTreeView, setActiveTreeView] = useState('')
+
   return (
     <aside className='main-sidebar'>
       {/* sidebar: style can be found in sidebar.less  */}
@@ -15,45 +14,56 @@ const AcademicsSidebar = () => {
         {/* Sidebar Menu  */}
         <ul className='sidebar-menu' data-widget='tree'>
           <li className='active'>
-            <Link exact to='/'>
+            <Link exact='true' to='/'>
               <i className='fa fa-dashboard'></i> <span>Dashboard</span>
             </Link>
           </li>
-          <li className='treeview'>
-            <a>
+          {/* Academics */}
+          <li
+            onClick={() => {
+              activeTreeView === 'academics'
+                ? setActiveTreeView('')
+                : setActiveTreeView('academics')
+              console.log(activeTreeView)
+            }}
+            className='treeview'>
+            <Link>
               <i className='fa fa-building-o'></i>
               <span>Academics</span>
               <span className='pull-right-container'>
                 <i className='fa fa-angle-left pull-right'></i>
               </span>
-            </a>
-            <ul className='treeview-menu'>
+            </Link>
+            <ul
+              className={`treeview-menu ${
+                activeTreeView === 'academics' && 'menu-open'
+              }`}>
               <li>
-                <Link exact to='/subjects'>
+                <Link exact='true' to='/subjects'>
                   <i className='fa fa-book'></i>
                   <span>Subjects</span>
                 </Link>
               </li>
               <li>
-                <Link exact to='/sections'>
+                <Link exact='true' to='/sections'>
                   <i className='fa fa-building-o'></i>
                   <span>Sections</span>
                 </Link>
               </li>
               <li>
-                <Link exact to='/class'>
+                <Link exact='true' to='/class'>
                   <i className='fa fa-sitemap'></i>
                   <span>Class</span>
                 </Link>
               </li>
               <li>
-                <Link exact to='/exams'>
+                <Link exact='true' to='/exams'>
                   <i className='fa fa-pencil'></i>
                   <span>Exams</span>
                 </Link>
               </li>
               <li>
-                <Link exact to='/grade'>
+                <Link exact='true' to='/grade'>
                   <i className='fa fa-signal'></i>
                   <span>Grade</span>
                 </Link>
@@ -62,18 +72,20 @@ const AcademicsSidebar = () => {
           </li>
           {/* Students */}
           <li className='treeview'>
-            <Link exact to='/students'>
+            <Link exact='true' to='/students'>
               <i className='fa fa-users'></i> <span>Students</span>
             </Link>
           </li>
           <li className='treeview'>
-            <Link exact to='/teachers'>
+            <Link exact='true' to='/teachers'>
               <i className='fa fa-users'></i> <span>Teachers</span>
             </Link>
           </li>
 
           {/* Results */}
-          <li className='treeview'>
+          <li
+            onClick={() => setActiveTreeView('results')}
+            className={`treeview ${activeTreeView === 'results' && 'active'}`}>
             <a>
               <i className='fa fa-graduation-cap'></i>
               <span>Results</span>
@@ -81,13 +93,16 @@ const AcademicsSidebar = () => {
                 <i className='fa fa-angle-left pull-right'></i>
               </span>
             </a>
-            <ul className='treeview-menu'>
+            <ul
+              className={`treeview-menu ${
+                activeTreeView === 'academics' && 'menu-open'
+              }`}>
               <li>
-                <Link exact to='/results'>
+                <Link exact='true' to='/results'>
                   <i className='fa fa-graduation-cap'></i>
                   <span>Results</span>
                 </Link>
-                <Link exact to='/result-templates'>
+                <Link exact='true' to='/result-templates'>
                   <i className='fa fa-graduation-cap'></i>
                   <span>Result Tempalates</span>
                 </Link>
@@ -95,7 +110,9 @@ const AcademicsSidebar = () => {
             </ul>
           </li>
           {/* Settings */}
-          <li className='treeview'>
+          <li
+            onClick={() => setActiveTreeView('settings')}
+            className={`treeview ${activeTreeView === 'settings' && 'active'}`}>
             <a>
               <i className='fa fa-gear'></i>
               <span>Settings</span>
@@ -103,15 +120,15 @@ const AcademicsSidebar = () => {
                 <i className='fa fa-angle-left pull-right'></i>
               </span>
             </a>
-            <ul className='treeview-menu'>
+            <ul className={`treeview ${activeTreeView === 'settings' && 'menu-open'}`}>
               <li>
-                <Link exact to='/settings'>
+                <Link exact='true' to='/settings'>
                   <i className='fa fa-link'></i>
                   <span>Settings</span>
                 </Link>
               </li>
               <li>
-                <Link exact to='/backup-restore'>
+                <Link exact='true' to='/backup-restore'>
                   <i className='fa fa-link'></i>
                   <span>Backup and Restore</span>
                 </Link>

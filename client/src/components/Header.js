@@ -1,26 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
+import $ from 'jquery'
 import userImage from '../img/userImage.jpg'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(true)
+
+  const handelOpen = () => {
+    const body = document.querySelector('body')
+    if (isOpen)
+      if (window.innerWidth > 767) body.classList.add('sidebar-collapse')
+      else body.classList.add('sidebar-open')
+    else if (window.innerWidth > 767) body.classList.remove('sidebar-collapse')
+    else body.classList.remove('sidebar-open')
+    setIsOpen(!isOpen)
+  }
   return (
     <header className='main-header'>
       {/* Logo  */}
       <Link to='/' className='logo'>
-        {/* mini logo for sidebar mini 50x50 pixels  */}
         <span className='logo-mini'>
-          <b>A</b>LT
+          <b>R</b>M
         </span>
-        {/* logo for regular state and mobile devices  */}
         <span className='logo-lg'>
-          <b>Admin</b>LTE
+          <b>Results</b>Managemer
         </span>
       </Link>
 
       {/* Header Navbar  */}
       <nav className='navbar navbar-static-top' role='navigation'>
         {/* Sidebar toggle button */}
-        <a href='#' className='sidebar-toggle' data-toggle='push-menu' role='button'>
+        <a
+          onClick={() => handelOpen()}
+          className='sidebar-toggle'
+          data-toggle='push-menu'
+          role='button'>
           <span className='sr-only'>Toggle navigation</span>
         </a>
         {/* Navbar Right Menu  */}

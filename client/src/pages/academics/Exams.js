@@ -4,6 +4,10 @@ import AcademicsSidebar from '../../components/AcademicsSidebar'
 import Content from '../../components/Content'
 import Footer from '../../components/Footer'
 
+const displayMessage = () => {
+  console.log({ message: 'Bonour tout le monde !' })
+}
+
 const Exams = () => {
   return (
     <React.Fragment>
