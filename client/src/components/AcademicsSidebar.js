@@ -26,14 +26,14 @@ const AcademicsSidebar = () => {
                 : setActiveTreeView('academics')
               console.log(activeTreeView)
             }}
-            className='treeview'>
-            <Link>
+            className={`treeview ${activeTreeView === 'academics' && 'active'}`}>
+            <a>
               <i className='fa fa-building-o'></i>
               <span>Academics</span>
               <span className='pull-right-container'>
                 <i className='fa fa-angle-left pull-right'></i>
               </span>
-            </Link>
+            </a>
             <ul
               className={`treeview-menu ${
                 activeTreeView === 'academics' && 'menu-open'
@@ -84,7 +84,12 @@ const AcademicsSidebar = () => {
 
           {/* Results */}
           <li
-            onClick={() => setActiveTreeView('results')}
+            onClick={() => {
+              activeTreeView === 'results'
+                ? setActiveTreeView('')
+                : setActiveTreeView('results')
+              console.log(activeTreeView)
+            }}
             className={`treeview ${activeTreeView === 'results' && 'active'}`}>
             <a>
               <i className='fa fa-graduation-cap'></i>
@@ -111,7 +116,12 @@ const AcademicsSidebar = () => {
           </li>
           {/* Settings */}
           <li
-            onClick={() => setActiveTreeView('settings')}
+            onClick={() => {
+              activeTreeView === 'settings'
+                ? setActiveTreeView('')
+                : setActiveTreeView('settings')
+              console.log(activeTreeView)
+            }}
             className={`treeview ${activeTreeView === 'settings' && 'active'}`}>
             <a>
               <i className='fa fa-gear'></i>
@@ -120,7 +130,8 @@ const AcademicsSidebar = () => {
                 <i className='fa fa-angle-left pull-right'></i>
               </span>
             </a>
-            <ul className={`treeview ${activeTreeView === 'settings' && 'menu-open'}`}>
+            <ul
+              className={`treeview-menu ${activeTreeView === 'settings' && 'menu-open'}`}>
               <li>
                 <Link exact='true' to='/settings'>
                   <i className='fa fa-link'></i>

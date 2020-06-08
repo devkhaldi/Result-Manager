@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from '../../components/Header'
-import AcademicsSidebar from '../../components/AcademicsSidebar'
-import Content from '../../components/Content'
-import Footer from '../../components/Footer'
+import Header from '../../../components/Header'
+import AcademicsSidebar from '../../../components/AcademicsSidebar'
+import Content from '../../../components/Content'
+import Footer from '../../../components/Footer'
 
-const Subjects = () => {
+const Teachers = () => {
   return (
     <React.Fragment>
       <Header />
@@ -14,7 +14,7 @@ const Subjects = () => {
         description='Control Panel'
         breadcrumbs={['Home', 'Class']}
         icon='fa fa-tachometer'>
-        <h1>Subjects</h1>
+        <h1>Teachers</h1>
       </Content>
       <Footer />
       {/* /.control-sidebar
@@ -25,4 +25,4 @@ const Subjects = () => {
   )
 }
 
-export default Subjects
+export default Teachers

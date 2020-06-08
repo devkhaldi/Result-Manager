@@ -1,10 +1,12 @@
 import React from 'react'
-import Header from '../../components/Header'
-import AcademicsSidebar from '../../components/AcademicsSidebar'
-import Content from '../../components/Content'
-import Footer from '../../components/Footer'
+import Header from '../../../components/Header'
+import AcademicsSidebar from '../../../components/AcademicsSidebar'
+import Content from '../../../components/Content'
+import Footer from '../../../components/Footer'
+import Boxes from './Boxes'
+import QuickIcons from './QuickIcons'
 
-const Students = () => {
+const Dashboard = () => {
   return (
     <React.Fragment>
       <Header />
@@ -12,9 +14,10 @@ const Students = () => {
       <Content
         pageHeader='Dashboard'
         description='Control Panel'
-        breadcrumbs={['Home', 'Class']}
+        breadcrumbs={['Home', 'Dashboard']}
         icon='fa fa-tachometer'>
-        <h1>Students</h1>
+        <Boxes />
+        <QuickIcons />
       </Content>
       <Footer />
       {/* /.control-sidebar
@@ -25,4 +28,4 @@ const Students = () => {
   )
 }
 
-export default Students
+export default Dashboard
