@@ -13,7 +13,7 @@ const Grades = () => {
         pageHeader='Grade form'
         description=''
         breadcrumbs={['Home', 'grades']}
-        icon='fa fa-tachometer'>
+        icon='fa fa-signal'>
         <div className='box'>
           <div className='box-header'>
             <div className='box-title'>Grades list</div>

@@ -27,7 +27,7 @@ const AcademicsSidebar = () => {
               console.log(activeTreeView)
             }}
             className={`treeview ${activeTreeView === 'academics' && 'active'}`}>
-            <a>
+            <a href='#'>
               <i className='fa fa-building-o'></i>
               <span>Academics</span>
               <span className='pull-right-container'>
@@ -91,7 +91,7 @@ const AcademicsSidebar = () => {
               console.log(activeTreeView)
             }}
             className={`treeview ${activeTreeView === 'results' && 'active'}`}>
-            <a>
+            <a href='#'>
               <i className='fa fa-graduation-cap'></i>
               <span>Results</span>
               <span className='pull-right-container'>
@@ -123,7 +123,7 @@ const AcademicsSidebar = () => {
               console.log(activeTreeView)
             }}
             className={`treeview ${activeTreeView === 'settings' && 'active'}`}>
-            <a>
+            <a href='#'>
               <i className='fa fa-gear'></i>
               <span>Settings</span>
               <span className='pull-right-container'>

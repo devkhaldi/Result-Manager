@@ -13,7 +13,7 @@ const Classes = () => {
         pageHeader='Class list'
         description='Add, Edit , Delete'
         breadcrumbs={['Home', 'classes']}
-        icon='fa fa-tachometer'>
+        icon='fa fa-sitemap'>
         <div className='box'>
           <div className='box-header'>
             <div className='box-title'>Classes list</div>
