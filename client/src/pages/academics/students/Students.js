@@ -19,13 +19,13 @@ const Students = () => {
             <div className='box-title'></div>
             <div className='box-tools'>
               <button className='btn btn-sm btn-primary'>
-                <i className='fa fa-plus' style={{ marginRight: '5px' }}></i>
+                <i className='fa fa-plus' style={{ marginRight: '2px' }}></i>
                 Add new
               </button>
             </div>
           </div>
-          <div className='box-body '>
-            <table className='table table-hover no-padding'>
+          <div className='box-body no-padding'>
+            <table className='table table-hover'>
               <tbody>
                 <tr>
                   <th>Student name</th>

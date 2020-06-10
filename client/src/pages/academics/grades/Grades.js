@@ -24,8 +24,8 @@ const Grades = () => {
               </button>
             </div>
           </div>
-          <div className='box-body '>
-            <table className='table table-hover no-padding'>
+          <div className='box-body no-padding'>
+            <table className='table table-hover'>
               <tbody>
                 <tr>
                   <th>Grade name</th>
@@ -42,7 +42,7 @@ const Grades = () => {
                       <a
                         href='#'
                         className='btn btn-sm btn-info'
-                        style={{ marginRight: '10px' }}>
+                        style={{ marginRight: '2px' }}>
                         <i className='fa fa-pencil'></i>
                       </a>
                       <a href='#' className='btn btn-sm btn-danger'>
