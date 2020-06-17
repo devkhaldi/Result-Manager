@@ -23,11 +23,6 @@
   font-size: 75px;
 }
 /* Navbar and sidebar  */
-
-.treeview .active,
-.menu-open {
-  transition: 1s all !important;
-}
 .treeview-menu {
-  transition: 1s all !important;
+  transition: all 1s;
 }

@@ -90,7 +90,7 @@ const AcademicsSidebar = () => {
                 : setActiveTreeView('results')
               console.log(activeTreeView)
             }}
-            className={`treeview ${activeTreeView === 'results' && 'active'}`}>
+            className={`treeview ${activeTreeView === 'results' ? 'active' : ''}`}>
             <a href='#'>
               <i className='fa fa-graduation-cap'></i>
               <span>Results</span>
@@ -100,8 +100,11 @@ const AcademicsSidebar = () => {
             </a>
             <ul
               className={`treeview-menu ${
-                activeTreeView === 'academics' && 'menu-open'
-              }`}>
+                activeTreeView === 'results' ? 'menu-open' : ''
+              }`}
+              style={
+                activeTreeView === 'results' ? { display: 'block' } : { display: 'none' }
+              }>
               <li>
                 <Link exact='true' to='/results'>
                   <i className='fa fa-graduation-cap'></i>

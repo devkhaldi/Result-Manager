@@ -1,0 +1,33 @@
+{
+  "name": "resultmanager",
+  "version": "1.0.0",
+  "description": "Result Manager using MERN",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devkhaldi/Result-Manager.git"
+  },
+  "author": "El khaldi Abderrahim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devkhaldi/Result-Manager/issues"
+  },
+  "homepage": "https://github.com/devkhaldi/Result-Manager#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.19",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  }
+}
