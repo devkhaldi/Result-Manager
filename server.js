@@ -1,10 +1,7 @@
 const express = require('express')
 const path = require('path')
-const morgan = require('morgan')
 const app = express()
 require('dotenv').config()
-
-app.use(morgan('dev'))
 
 app.get('/', (req, res) => res.json({ message: 'Hello !' }))
 
