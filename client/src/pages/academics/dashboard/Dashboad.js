@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
-import Content from '../../../components/Content'
 import Footer from '../../../components/Footer'
 import Boxes from './Boxes'
 import QuickIcons from './QuickIcons'
@@ -11,14 +10,20 @@ const Dashboard = () => {
     <React.Fragment>
       <Header />
       <AcademicsSidebar />
-      <Content
-        pageHeader='Dashboard'
-        description='Control Panel'
-        breadcrumbs={['Home', 'Dashboard']}
-        icon='fa fa-tachometer'>
-        <Boxes />
-        <QuickIcons />
-      </Content>
+
+      <div className='content-wrapper'>
+        <section className='content-header'>
+          <h1>
+            <i className='fa fa-tachometer' style={{ marginRight: '7px' }}></i>
+            Dashboard
+            <small>Control panel</small>
+          </h1>
+        </section>
+        <section className='content container-fluid'>
+          <Boxes />
+          <QuickIcons />
+        </section>
+      </div>
       <Footer />
       {/* /.control-sidebar
           Add the sidebar's background. This div must be placed

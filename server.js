@@ -10,11 +10,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }
-
 app.get('/', (req, res) => res.json({ message: 'Hello !' }))
-
 app.use((req, res) => res.status(404).json({ message: 'Not Found!' }))
-
 const PORT = process.env.PORT || 5000
-
 app.listen(PORT, () => console.log(`Server started ${PORT}`))
