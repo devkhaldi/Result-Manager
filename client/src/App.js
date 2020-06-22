@@ -10,6 +10,7 @@ import Exams from './pages/academics/exams/Exams'
 import Grades from './pages/academics/grades/Grades'
 import Students from './pages/academics/students/Students'
 import Teachers from './pages/academics/teachers/Teachers'
+import Results from './pages/academics/results/Results'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path='/grade' component={Grades} />
         <Route exact path='/students' component={Students} />
         <Route exact path='/teachers' component={Teachers} />
+        <Route exact path='/results' component={Results} />
       </Switch>
     </BrowserRouter>
   )

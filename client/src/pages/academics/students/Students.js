@@ -26,49 +26,53 @@ const Students = () => {
           <div className='box'>
             <div className='box-header'>
               <form>
-                <div className='row'>
-                  <div className='col-sm-3'>
-                    <div className='input-group input-group-sm'>
-                      <input
-                        type='text'
-                        style={{ marginLeft: '10px' }}
-                        class='form-control pull-right'
-                      />
-                      <span class='input-group-btn'>
-                        <button type='button' class='btn btn-default btn-flat'>
-                          <i className='fa fa-search'></i>
-                        </button>
-                      </span>
+                <div className='container-fluid'>
+                  <div className='row'>
+                    <div className='col-sm-3'>
+                      <div className='input-group input-group-sm'>
+                        <input
+                          type='text'
+                          style={{ marginLeft: '10px' }}
+                          class='form-control pull-right'
+                        />
+                        <span class='input-group-btn'>
+                          <button type='button' class='btn btn-default btn-flat'>
+                            <i className='fa fa-search'></i>
+                          </button>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div className='col-sm-3'>
-                    <div className='form-group'>
-                      <select class='form-control input-sm'>
-                        <option>Select class</option>
-                        <option>One</option>
-                        <option>Two</option>
-                      </select>
+                    <div className='col-sm-3'>
+                      <div className='form-group'>
+                        <select class='form-control input-sm'>
+                          <option>Select class</option>
+                          <option>One</option>
+                          <option>Two</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
-                  <div className='col-sm-3'>
-                    <div className='form-group'>
-                      <select class='form-control input-sm'>
-                        <option>Select section</option>
-                        <option>A</option>
-                        <option>B</option>
-                      </select>
+                    <div className='col-sm-3'>
+                      <div className='form-group'>
+                        <select class='form-control input-sm'>
+                          <option>Select section</option>
+                          <option>A</option>
+                          <option>B</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
-                  <div className='col-sm-3'>
-                    <div className='form-group'>
-                      <select class='form-control input-sm'>
-                        <option>2015</option>
-                        <option>2016</option>
-                        <option>2017</option>
-                        <option>2018</option>
-                        <option>2019</option>
-                        <option>2020</option>
-                      </select>
+                    <div className='col-sm-3'>
+                      <div
+                        className='form-group'
+                        style={{ position: 'relative', top: '-6px' }}>
+                        <select class='form-control input-sm'>
+                          <option>2015</option>
+                          <option>2016</option>
+                          <option>2017</option>
+                          <option>2018</option>
+                          <option>2019</option>
+                          <option>2020</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
