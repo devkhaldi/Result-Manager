@@ -25,25 +25,56 @@ const Students = () => {
         <section className='content container-fluid'>
           <div className='box'>
             <div className='box-header'>
-              <div className='box-title'></div>
-              <div className='box-tools'>
-                <form>
-                  <div className='input-group  input-group-sm'>
-                    <input
-                      type='text'
-                      style={{ width: '150px' }}
-                      class='form-control pull-right'
-                    />
-                    <span class='input-group-btn'>
-                      <button type='button' class='btn btn-default btn-flat'>
-                        <i className='fa fa-search'></i>
-                      </button>
-                    </span>
+              <form>
+                <div className='row'>
+                  <div className='col-sm-3'>
+                    <div className='input-group input-group-sm'>
+                      <input
+                        type='text'
+                        style={{ marginLeft: '10px' }}
+                        class='form-control pull-right'
+                      />
+                      <span class='input-group-btn'>
+                        <button type='button' class='btn btn-default btn-flat'>
+                          <i className='fa fa-search'></i>
+                        </button>
+                      </span>
+                    </div>
                   </div>
-                </form>
-              </div>
+                  <div className='col-sm-3'>
+                    <div className='form-group'>
+                      <select class='form-control input-sm'>
+                        <option>Select class</option>
+                        <option>One</option>
+                        <option>Two</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className='col-sm-3'>
+                    <div className='form-group'>
+                      <select class='form-control input-sm'>
+                        <option>Select section</option>
+                        <option>A</option>
+                        <option>B</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className='col-sm-3'>
+                    <div className='form-group'>
+                      <select class='form-control input-sm'>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div className='box-body no-padding'>
+            <div className='box-body table-responsive no-padding'>
               <table className='table table-hover'>
                 <tbody>
                   <tr>
