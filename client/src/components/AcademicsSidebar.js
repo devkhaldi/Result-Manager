@@ -9,7 +9,6 @@ const AcademicsSidebar = () => {
 
   return (
     <aside className='main-sidebar'>
-      {/* sidebar: style can be found in sidebar.less  */}
       <section className='sidebar'>
         {/* Sidebar Menu  */}
         <ul className='sidebar-menu' data-widget='tree'>
