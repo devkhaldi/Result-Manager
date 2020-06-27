@@ -32,10 +32,10 @@ const Teachers = () => {
                     <input
                       type='text'
                       style={{ width: '150px' }}
-                      class='form-control pull-right'
+                      className='form-control pull-right'
                     />
-                    <span class='input-group-btn'>
-                      <button type='button' class='btn btn-default btn-flat'>
+                    <span className='input-group-btn'>
+                      <button type='button' className='btn btn-default btn-flat'>
                         <i className='fa fa-search'></i>
                       </button>
                     </span>
@@ -53,7 +53,7 @@ const Teachers = () => {
                     <th className='text-right'>Actions</th>
                   </tr>
                   {teachers.map(teacher => (
-                    <tr>
+                    <tr key={teacher.id}>
                       <td>{teacher.name}</td>
                       <td className='text-center'>{teacher.email}</td>
                       <td className='text-center'>{teacher.phone}</td>
@@ -86,7 +86,12 @@ const Teachers = () => {
 }
 
 const teachers = [
-  { name: 'Md Enamul Islam', email: 'teacher@zwebtheme.com', phone: '01699386236' },
+  {
+    id: 1,
+    name: 'Md Enamul Islam',
+    email: 'teacher@zwebtheme.com',
+    phone: '01699386236',
+  },
 ]
 
 export default Teachers

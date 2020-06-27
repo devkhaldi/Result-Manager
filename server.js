@@ -1,7 +1,17 @@
 const express = require('express')
 const path = require('path')
+const mongoose = require('mongoose')
 const app = express()
 require('dotenv').config()
+
+// connect to MongoDB
+mongoose
+  .connect(process.env.MONGO_DB, { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.log(error))
+
+mongoose.Promise = global.Promise
+app.use(express.json())
 
 // serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

@@ -52,7 +52,7 @@ const Classes = () => {
                     <th>Subjects</th>
                     <th className='text-right'>Actions</th>
                   </tr>
-                  {classes.map(cl => (
+                  {classList.map(cl => (
                     <tr>
                       <td>{cl.title}</td>
                       <td>
@@ -88,9 +88,9 @@ const Classes = () => {
   )
 }
 
-const classes = [
-  { title: 'One', subjects: ['Bangla', 'English', 'Math'] },
-  { title: 'Two', subjects: ['Bangla', 'English', 'Math'] },
+const classList = [
+  { id: 1, title: 'One', subjects: ['Bangla', 'English', 'Math'] },
+  { id: 2, title: 'Two', subjects: ['Bangla', 'English', 'Math'] },
 ]
 
 export default Classes
