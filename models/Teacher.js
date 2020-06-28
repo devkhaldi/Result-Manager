@@ -19,4 +19,4 @@ const TeacherSchema = new mongoose.Schema({
   },
 })
 
-module.exports = Teacher = mongoose.model('Teacher', SubjectSchema)
+module.exports = Teacher = mongoose.model('Teacher', TeacherSchema)
