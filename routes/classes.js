@@ -11,8 +11,17 @@ Router.get('/', async (req, res) => {
   }
 })
 
+Router.get('/:id', async (req, res) => {
+  try {
+    const classe = await Classe.findById(req.params.id)
+    res.json({ classe })
+  } catch (error) {
+    res.status(500).json({ error })
+  }
+})
+
 Router.post('/', async (req, res) => {
-  const classe = new Classe(req.body)
+  const classe = new Classe({ _id: mongoose.Types.ObjectId(), ...req.body })
   try {
     const doc = await classe.save()
     res.json({ classe: doc })

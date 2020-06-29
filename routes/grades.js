@@ -11,6 +11,15 @@ Router.get('/', async (req, res) => {
   }
 })
 
+Router.get('/:id', async (req, res) => {
+  try {
+    const grade = await Grade.findById(req.params.id)
+    res.json({ grade })
+  } catch (error) {
+    res.status(500).json({ error })
+  }
+})
+
 Router.post('/', async (req, res) => {
   const grade = new Grade(req.body)
   try {

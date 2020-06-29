@@ -11,6 +11,15 @@ Router.get('/', async (req, res) => {
   }
 })
 
+Router.get('/:id', async (req, res) => {
+  try {
+    const institute = await Institute.findById(req.params.id)
+    res.json({ institute })
+  } catch (error) {
+    res.status(500).json({ error })
+  }
+})
+
 Router.post('/', async (req, res) => {
   const institute = new Institute(req.body)
   try {

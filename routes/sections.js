@@ -11,6 +11,15 @@ Router.get('/', async (req, res) => {
   }
 })
 
+Router.get('/:id', async (req, res) => {
+  try {
+    const section = await Section.findById(req.params.id)
+    res.json({ section })
+  } catch (error) {
+    res.status(500).json({ error })
+  }
+})
+
 Router.post('/', async (req, res) => {
   const section = new Section({
     _id: mongoose.Types.ObjectId(),

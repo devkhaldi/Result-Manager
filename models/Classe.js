@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const ClasseSchema = new mongoose.Schema({
   _id: mongoose.Types.ObjectId,
-  title: { type: String, required: true },
+  title: { type: String, required: true, unique: true },
   subjects: [String],
   optionalSubjects: [String],
 })

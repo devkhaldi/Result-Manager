@@ -11,6 +11,15 @@ Router.get('/', async (req, res) => {
   }
 })
 
+Router.get('/:id', async (req, res) => {
+  try {
+    const teacher = await Teacher.findById(req.params.id)
+    res.json({ teacher })
+  } catch (error) {
+    res.status(500).json({ error })
+  }
+})
+
 Router.post('/', async (req, res) => {
   const teacher = new Teacher(req.body)
   try {
