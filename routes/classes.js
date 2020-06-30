@@ -1,6 +1,8 @@
 const Router = require('express').Router()
 const mongoose = require('mongoose')
 const Classe = require('../models/Classe')
+const { validationResult } = require('express-validator')
+const { ValidateClasse } = require('../middlewares/validate')
 
 Router.get('/', async (req, res) => {
   try {
@@ -20,7 +22,10 @@ Router.get('/:id', async (req, res) => {
   }
 })
 
-Router.post('/', async (req, res) => {
+Router.post('/', ValidateClasse('CREATE_CLASSE'), async (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+
   const classe = new Classe({ _id: mongoose.Types.ObjectId(), ...req.body })
   try {
     const doc = await classe.save()

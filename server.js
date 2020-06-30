@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
+const expressValidator = require('express-validator')
 const app = express()
 require('dotenv').config()
 

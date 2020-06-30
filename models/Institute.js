@@ -15,22 +15,19 @@ const instituteSchema = new mongoose.Schema({
     maxlength: 100,
     match: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
   },
-  settings: {
-    instituteName: { type: String },
-    adress: { type: String },
-    email: { type: String },
-    phone: { type: String },
-    website: { type: String },
-    defaultLanguage: { type: String },
-    yearStart: { type: Number, min: 2010, default: 2015 },
-    yearEnd: {
-      type: Number,
-      min: 2010,
-      max: new Date().getFullYear(),
-      default: new Date().getFullYear(),
-    },
-    theme: { type: String },
+  // settings
+  adress: { type: String },
+  phone: { type: String },
+  website: { type: String },
+  defaultLanguage: { type: String },
+  yearStart: { type: Number, min: 2010, default: new Date().getFullYear() - 5 },
+  yearEnd: {
+    type: Number,
+    min: 2010,
+    max: new Date().getFullYear(),
+    default: new Date().getFullYear(),
   },
+  theme: { type: String },
 })
 
 module.exports = Institute = mongoose.model('Institute', instituteSchema)
