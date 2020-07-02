@@ -118,6 +118,7 @@ exports.ValidateSection = method => {
     }
   }
 }
+
 exports.ValidateStudent = method => {
   switch (method) {
     case 'CREATE_STUDENT': {
@@ -125,24 +126,42 @@ exports.ValidateStudent = method => {
         body('firstName', 'Invalid firstName').exists().isString(),
         body('middleName', 'Invalid middleName').isString(),
         body('lastName', 'Invalid lastName').exists().isString(),
-        body('adress', 'Invalid adress').exists().isString(),
+        body('adress', 'Invalid adress').exists(),
         body('fatherName', 'Invalid fatherName').exists().isString(),
-        body('fatherPhone', 'Invalid fatherPhone').exists().isString(),
+        body('fatherPhone', 'Invalid fatherPhone').exists(),
         body('motherName', 'Invalid motherName').exists().isString(),
-        body('motherPhone', 'Invalid motherPhone').exists().isString(),
+        body('motherPhone', 'Invalid motherPhone').exists(),
         body('guardianName', 'Invalid guardianName').isString(),
-        body('guardianPhone', 'Invalid guardianPhone').isString(),
-        body('dateBirth', 'Invalid dateBirth').exists().isString(),
-        body('email', 'Invalid email').exists().isString(),
-        body('sex', 'Invalid sex').exists().isString(),
-        body('dateJoining', 'Invalid dateJoining').exists().isString(),
+        body('guardianPhone', 'Invalid guardianPhone'),
+        body('dateBirth', 'Invalid dateBirth').exists().isDate(),
+        body('email', 'Invalid email').exists().isEmail(),
+        body('sex', 'Invalid sex').exists().isIn(['F', 'M']),
+        body('dateJoining', 'Invalid dateJoining').exists().isDate(),
         body('class', 'Invalid class').exists().isString(),
         body('section', 'Invalid section').exists().isString(),
         body('password', 'Invalid password').exists().isString(),
       ]
     }
     case 'UPDATE_STUDENT': {
-      return []
+      return [
+        body('firstName', 'Invalid firstName').isString(),
+        body('middleName', 'Invalid middleName').isString(),
+        body('lastName', 'Invalid lastName').isString(),
+        body('adress', 'Invalid adress'),
+        body('fatherName', 'Invalid fatherName').isString(),
+        body('fatherPhone', 'Invalid fatherPhone'),
+        body('motherName', 'Invalid motherName').isString(),
+        body('motherPhone', 'Invalid motherPhone'),
+        body('guardianName', 'Invalid guardianName').isString(),
+        body('guardianPhone', 'Invalid guardianPhone'),
+        body('dateBirth', 'Invalid dateBirth').isDate(),
+        body('email', 'Invalid email').isEmail(),
+        body('sex', 'Invalid sex').isIn(['F', 'M']),
+        body('dateJoining', 'Invalid dateJoining').isDate(),
+        body('class', 'Invalid class').isString(),
+        body('section', 'Invalid section').isString(),
+        body('password', 'Invalid password').isString(),
+      ]
     }
   }
 }
