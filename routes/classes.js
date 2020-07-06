@@ -2,7 +2,7 @@ const Router = require('express').Router()
 const mongoose = require('mongoose')
 const Classe = require('../models/Classe')
 const { validationResult } = require('express-validator')
-const { ValidateClasse } = require('../middlewares/validate')
+const { validateClasse } = require('../middlewares/validate')
 
 Router.get('/', async (req, res) => {
   try {
@@ -22,7 +22,7 @@ Router.get('/:id', async (req, res) => {
   }
 })
 
-Router.post('/', ValidateClasse('CREATE_CLASSE'), async (req, res) => {
+Router.post('/', validateClasse('CREATE_CLASSE'), async (req, res) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
 
@@ -34,7 +34,9 @@ Router.post('/', ValidateClasse('CREATE_CLASSE'), async (req, res) => {
     res.status(500).json({ error })
   }
 })
-Router.put('/:id', (req, res) => {
+Router.put('/:id', validateClasse('UPDATE_CLASSE'), (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
   try {
     Classe.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, classe) => {
       if (error) res.status(500).json({ error })

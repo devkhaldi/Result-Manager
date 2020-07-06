@@ -21,7 +21,9 @@ Router.get('/:id', async (req, res) => {
 })
 
 Router.post('/', async (req, res) => {
-  const student = new Student(req.body)
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  const student = new Student({ _id: mongoose.Types.ObjectId(), ...req.body })
   try {
     const doc = await student.save()
     res.json({ student: doc })
@@ -30,6 +32,8 @@ Router.post('/', async (req, res) => {
   }
 })
 Router.put('/:id', (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
   try {
     Student.findByIdAndUpdate(
       req.params.id,

@@ -21,6 +21,8 @@ Router.get('/:id', async (req, res) => {
 })
 
 Router.post('/', async (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
   const section = new Section({
     _id: mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -35,6 +37,8 @@ Router.post('/', async (req, res) => {
   }
 })
 Router.put('/:id', (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
   try {
     Section.findByIdAndUpdate(
       req.params.id,

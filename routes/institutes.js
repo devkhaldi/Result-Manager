@@ -1,6 +1,8 @@
 const Router = require('express').Router()
 const mongoose = require('mongoose')
 const Institute = require('../models/Institute')
+const { validationResult } = require('express-validator')
+const { validateInstitute } = require('../middlewares/validate')
 
 Router.get('/', async (req, res) => {
   try {
@@ -21,7 +23,9 @@ Router.get('/:id', async (req, res) => {
 })
 
 Router.post('/', async (req, res) => {
-  const institute = new Institute(req.body)
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  const institute = new Institute({ _id: mongoose.Types.ObjectId(), ...req.body })
   try {
     const doc = await institute.save()
     res.json({ institute: doc })
@@ -30,6 +34,8 @@ Router.post('/', async (req, res) => {
   }
 })
 Router.put('/:id', (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
   try {
     Institute.findByIdAndUpdate(
       req.params.id,

@@ -1,6 +1,6 @@
-const { body, param, query } = require('express-validator/check')
+const { body, param, query } = require('express-validator')
 
-exports.ValidateClasse = method => {
+exports.validateClasse = method => {
   switch (method) {
     case 'CREATE_CLASSE': {
       return [
@@ -18,7 +18,7 @@ exports.ValidateClasse = method => {
     }
   }
 }
-exports.ValidateExam = method => {
+exports.validateExam = method => {
   switch (method) {
     case 'CREATE_EXAM': {
       return [
@@ -38,7 +38,7 @@ exports.ValidateExam = method => {
     }
   }
 }
-exports.ValidateGrade = method => {
+exports.validateGrade = method => {
   switch (method) {
     case 'CREATE_GRADE': {
       return [
@@ -58,7 +58,7 @@ exports.ValidateGrade = method => {
     }
   }
 }
-exports.ValidateInstitute = method => {
+exports.validateInstitute = method => {
   switch (method) {
     case 'CREATE_INSTITUTE': {
       return [
@@ -110,7 +110,7 @@ exports.ValidateInstitute = method => {
     }
   }
 }
-exports.ValidateSection = method => {
+exports.validateSection = method => {
   switch (method) {
     case 'CREATE_SECTION':
     case 'UPDATE_SECTION': {
@@ -119,7 +119,7 @@ exports.ValidateSection = method => {
   }
 }
 
-exports.ValidateStudent = method => {
+exports.validateStudent = method => {
   switch (method) {
     case 'CREATE_STUDENT': {
       return [
@@ -165,23 +165,31 @@ exports.ValidateStudent = method => {
     }
   }
 }
-exports.ValidateSubejct = method => {
+exports.validateSubejct = method => {
   switch (method) {
-    case 'CREATE_EXAM': {
-      return []
-    }
-    case 'UPDATE_EXAM': {
-      return []
+    case 'CREATE_SUBJECT':
+    case 'UPDATE_SUBJECT': {
+      return [body('name', 'Invalid name').exists().isString()]
     }
   }
 }
-exports.ValidateTeacher = method => {
+exports.validateTeacher = method => {
   switch (method) {
-    case 'CREATE_EXAM': {
-      return []
+    case 'CREATE_TEACHER': {
+      return [
+        body('name', 'Invalid name').exists().isString(),
+        body('email', 'Invalid email').exists().isEmail(),
+        body('subjects', 'Invalid subjects').exists().isArray(),
+        body('password', 'Invalid password').exists(),
+      ]
     }
-    case 'UPDATE_EXAM': {
-      return []
+    case 'UPDATE_TEACHER': {
+      return [
+        body('name', 'Invalid name').isString(),
+        body('email', 'Invalid email').isEmail(),
+        body('subjects', 'Invalid subjects').isArray(),
+        body('password', 'Invalid password'),
+      ]
     }
   }
 }
