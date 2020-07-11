@@ -1,7 +1,6 @@
 const Router = require('express').Router()
 const mongoose = require('mongoose')
 const Grade = require('../models/Grade')
-
 const { validationResult } = require('express-validator')
 const { validateGrade } = require('../middlewares/validate')
 
@@ -25,7 +24,7 @@ Router.get('/:id', async (req, res) => {
 
 Router.post('/', validateGrade('CREATE_GRADE'), async (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   const grade = new Grade({ _id: mongoose.Types.ObjectId(), ...req.body })
   try {
     const doc = await grade.save()
@@ -36,7 +35,7 @@ Router.post('/', validateGrade('CREATE_GRADE'), async (req, res) => {
 })
 Router.put('/:id', validateGrade('UPDATE_GRADE'), (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   try {
     Grade.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, grade) => {
       if (error) res.status(500).json({ error })

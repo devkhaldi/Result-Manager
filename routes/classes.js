@@ -24,7 +24,7 @@ Router.get('/:id', async (req, res) => {
 
 Router.post('/', validateClasse('CREATE_CLASSE'), async (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
 
   const classe = new Classe({ _id: mongoose.Types.ObjectId(), ...req.body })
   try {
@@ -36,7 +36,7 @@ Router.post('/', validateClasse('CREATE_CLASSE'), async (req, res) => {
 })
 Router.put('/:id', validateClasse('UPDATE_CLASSE'), (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   try {
     Classe.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, classe) => {
       if (error) res.status(500).json({ error })

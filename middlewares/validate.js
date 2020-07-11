@@ -11,9 +11,9 @@ exports.validateClasse = method => {
     }
     case 'UPDATE_CLASSE': {
       return [
-        body('title', 'Invalid title'),
-        body('subject', 'Invalid subject').isArray(),
-        body('optionalSubjects', 'Invalid optionalSubjects').isArray(),
+        body('title', 'Invalid title').optional(),
+        body('subject', 'Invalid subject').optional().isArray(),
+        body('optionalSubjects', 'Invalid optionalSubjects').optional().isArray(),
       ]
     }
   }
@@ -30,10 +30,10 @@ exports.validateExam = method => {
     }
     case 'UPDATE_EXAM': {
       return [
-        body('name', 'Invalid name').isString(),
-        body('date', 'Invalid date').isDate(),
-        body('classes', 'Invalid classes').isArray(),
-        body('status', 'Invalid status').isIn(['P', 'U']),
+        body('name', 'Invalid name').optional().isString(),
+        body('date', 'Invalid date').optional().isDate(),
+        body('classes', 'Invalid classes').optional().isArray(),
+        body('status', 'Invalid status').optional().isIn(['P', 'U']),
       ]
     }
   }
@@ -45,15 +45,15 @@ exports.validateGrade = method => {
         body('name', 'Invalid name').exists().isString(),
         body('markFrom', 'Invalid markFrom').exists().isInt({ min: 0, max: 100 }),
         body('markUpTO', 'Invalid markUpTo').exists().isInt({ min: 0, max: 100 }),
-        body('comment', 'Invalid comment').isString(),
+        body('comment', 'Invalid comment').optional().isString(),
       ]
     }
     case 'UPDATE_GRADE': {
       return [
-        body('name', 'Invalid name').isString(),
-        body('markFrom', 'Invalid markFrom').isInt({ min: 0, max: 100 }),
-        body('markUpTO', 'Invalid markUpTo').isInt({ min: 0, max: 100 }),
-        body('comment', 'Invalid comment').isString(),
+        body('name', 'Invalid name').optional().isString(),
+        body('markFrom', 'Invalid markFrom').optional().isInt({ min: 0, max: 100 }),
+        body('markUpTO', 'Invalid markUpTo').optional().isInt({ min: 0, max: 100 }),
+        body('comment', 'Invalid comment').optional().isString(),
       ]
     }
   }
@@ -69,43 +69,43 @@ exports.validateInstitute = method => {
           .isString()
           .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)
           .isLength({ min: 8 }),
-        body('adress', 'Invalid adress').isString(),
-        body('phone', 'Invalid phone').isString(),
-        body('website', 'Invalid website').isString().isURL(),
-        body('defaultLanguage', 'Invalid defaultLanguage').isString(),
-        body('yearStart', 'Invalid yearStart').isInt({
+        body('adress', 'Invalid adress').optional().isString(),
+        body('phone', 'Invalid phone').optional().isString(),
+        body('website', 'Invalid website').optional().isString().isURL(),
+        body('defaultLanguage', 'Invalid defaultLanguage').optional().isString(),
+        body('yearStart', 'Invalid yearStart').optional().isInt({
           min: 2010,
           max: new Date().getFullYear(),
         }),
-        body('yearEnd', 'Invalid yearEnd').isInt({
+        body('yearEnd', 'Invalid yearEnd').optional().isInt({
           min: 2010,
           max: new Date().getFullYear(),
         }),
-        body('theme', 'Invalid theme').isString(),
+        body('theme', 'Invalid theme').optional().isString(),
       ]
     }
     case 'UPDATE_INSTITUTE': {
       return [
-        body('name', 'Invalid name').isString(),
-        body('email', 'Invalid email').isEmail(),
+        body('name', 'Invalid name').optional().isString(),
+        body('email', 'Invalid email').optional().isEmail(),
         body('password', 'Invalid password')
-          .exists()
+          .optional()
           .isString()
           .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)
           .isLength({ min: 8 }),
-        body('adress', 'Invalid adress').isString(),
-        body('phone', 'Invalid phone').isString(),
-        body('website', 'Invalid website').isString().isURL(),
-        body('defaultLanguage', 'Invalid defaultLanguage').isString(),
-        body('yearStart', 'Invalid yearStart').isInt({
+        body('adress', 'Invalid adress').optional().isString(),
+        body('phone', 'Invalid phone').optional().isString(),
+        body('website', 'Invalid website').optional().isString().isURL(),
+        body('defaultLanguage', 'Invalid defaultLanguage').optional().isString(),
+        body('yearStart', 'Invalid yearStart').optional().isInt({
           min: 2010,
           max: new Date().getFullYear(),
         }),
-        body('yearEnd', 'Invalid yearEnd').isInt({
+        body('yearEnd', 'Invalid yearEnd').optional().isInt({
           min: 2010,
           max: new Date().getFullYear(),
         }),
-        body('theme', 'Invalid theme').isString(),
+        body('theme', 'Invalid theme').optional().isString(),
       ]
     }
   }
@@ -124,15 +124,15 @@ exports.validateStudent = method => {
     case 'CREATE_STUDENT': {
       return [
         body('firstName', 'Invalid firstName').exists().isString(),
-        body('middleName', 'Invalid middleName').isString(),
+        body('middleName', 'Invalid middleName').optional().isString(),
         body('lastName', 'Invalid lastName').exists().isString(),
         body('adress', 'Invalid adress').exists(),
         body('fatherName', 'Invalid fatherName').exists().isString(),
         body('fatherPhone', 'Invalid fatherPhone').exists(),
         body('motherName', 'Invalid motherName').exists().isString(),
         body('motherPhone', 'Invalid motherPhone').exists(),
-        body('guardianName', 'Invalid guardianName').isString(),
-        body('guardianPhone', 'Invalid guardianPhone'),
+        body('guardianName', 'Invalid guardianName').optional().isString(),
+        body('guardianPhone', 'Invalid guardianPhone').optional(),
         body('dateBirth', 'Invalid dateBirth').exists().isDate(),
         body('email', 'Invalid email').exists().isEmail(),
         body('sex', 'Invalid sex').exists().isIn(['F', 'M']),
@@ -144,23 +144,23 @@ exports.validateStudent = method => {
     }
     case 'UPDATE_STUDENT': {
       return [
-        body('firstName', 'Invalid firstName').isString(),
-        body('middleName', 'Invalid middleName').isString(),
-        body('lastName', 'Invalid lastName').isString(),
-        body('adress', 'Invalid adress'),
-        body('fatherName', 'Invalid fatherName').isString(),
-        body('fatherPhone', 'Invalid fatherPhone'),
-        body('motherName', 'Invalid motherName').isString(),
-        body('motherPhone', 'Invalid motherPhone'),
-        body('guardianName', 'Invalid guardianName').isString(),
-        body('guardianPhone', 'Invalid guardianPhone'),
-        body('dateBirth', 'Invalid dateBirth').isDate(),
-        body('email', 'Invalid email').isEmail(),
-        body('sex', 'Invalid sex').isIn(['F', 'M']),
-        body('dateJoining', 'Invalid dateJoining').isDate(),
-        body('class', 'Invalid class').isString(),
-        body('section', 'Invalid section').isString(),
-        body('password', 'Invalid password').isString(),
+        body('firstName', 'Invalid firstName').optional().isString(),
+        body('middleName', 'Invalid middleName').optional().isString(),
+        body('lastName', 'Invalid lastName').optional().isString(),
+        body('adress', 'Invalid adress').optional(),
+        body('fatherName', 'Invalid fatherName').optional().isString(),
+        body('fatherPhone', 'Invalid fatherPhone').optional(),
+        body('motherName', 'Invalid motherName').optional().isString(),
+        body('motherPhone', 'Invalid motherPhone').optional(),
+        body('guardianName', 'Invalid guardianName').optional().isString(),
+        body('guardianPhone', 'Invalid guardianPhone').optional(),
+        body('dateBirth', 'Invalid dateBirth').optional().isDate(),
+        body('email', 'Invalid email').optional().isEmail(),
+        body('sex', 'Invalid sex').optional().isIn(['F', 'M']),
+        body('dateJoining', 'Invalid dateJoining').optional().isDate(),
+        body('class', 'Invalid class').optional().isString(),
+        body('section', 'Invalid section').optional().isString(),
+        body('password', 'Invalid password').optional().isString(),
       ]
     }
   }
@@ -185,10 +185,10 @@ exports.validateTeacher = method => {
     }
     case 'UPDATE_TEACHER': {
       return [
-        body('name', 'Invalid name').isString(),
-        body('email', 'Invalid email').isEmail(),
-        body('subjects', 'Invalid subjects').isArray(),
-        body('password', 'Invalid password'),
+        body('name', 'Invalid name').optional().isString(),
+        body('email', 'Invalid email').optional().isEmail(),
+        body('subjects', 'Invalid subjects').optional().isArray(),
+        body('password', 'Invalid password').optional(),
       ]
     }
   }

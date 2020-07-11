@@ -24,7 +24,7 @@ Router.get('/:id', async (req, res) => {
 
 Router.post('/', validateExam('CREATE_EXAM'), async (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   const exam = new Exam(req.body)
   try {
     const doc = await exam.save()
@@ -35,7 +35,7 @@ Router.post('/', validateExam('CREATE_EXAM'), async (req, res) => {
 })
 Router.put('/:id', validateExam('UPDATE_EXAM'), (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   try {
     Exam.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, exam) => {
       if (error) res.status(500).json({ error })

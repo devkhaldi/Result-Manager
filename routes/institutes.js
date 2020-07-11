@@ -22,9 +22,9 @@ Router.get('/:id', async (req, res) => {
   }
 })
 
-Router.post('/', async (req, res) => {
+Router.post('/', validateInstitute('CREATE_INSTITUTE'), async (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   const institute = new Institute({ _id: mongoose.Types.ObjectId(), ...req.body })
   try {
     const doc = await institute.save()
@@ -33,9 +33,9 @@ Router.post('/', async (req, res) => {
     res.status(500).json({ error })
   }
 })
-Router.put('/:id', (req, res) => {
+Router.put('/:id', validateInstitute('UPDATE_INSTITUTE'), (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   try {
     Institute.findByIdAndUpdate(
       req.params.id,

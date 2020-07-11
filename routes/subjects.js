@@ -1,11 +1,13 @@
 const Router = require('express').Router()
 const mongoose = require('mongoose')
 const Subject = require('../models/Subject')
+const { validationResult } = require('express-validator')
+const { validateSubejct } = require('../middlewares/validate')
 
 Router.get('/', async (req, res) => {
   try {
     const subjects = await Subject.find()
-    res.json({ subjects })
+    res.json({ subjects, total: subjects.length })
   } catch (error) {
     res.status(500).json({ error })
   }
@@ -20,9 +22,9 @@ Router.get('/:id', async (req, res) => {
   }
 })
 
-Router.post('/', async (req, res) => {
+Router.post('/', validateSubejct('CREATE_SUBJECT'), async (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   const subject = new Subject({ _id: mongoose.Types.ObjectId(), ...req.body })
   try {
     const doc = await subject.save()
@@ -31,9 +33,9 @@ Router.post('/', async (req, res) => {
     res.status(500).json({ error })
   }
 })
-Router.put('/:id', (req, res) => {
+Router.put('/:id', validateSubejct('UPDATE_SUBJECT'), (req, res) => {
   const errors = validationResult(req)
-  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() })
+  if (!errors.isEmpty()) return res.status(422).json({ errors: errors.mapped() })
   try {
     Subject.findByIdAndUpdate(
       req.params.id,
