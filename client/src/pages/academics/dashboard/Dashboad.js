@@ -20,10 +20,13 @@ const Dashboard = () => {
           </h1>
         </section>
         <section className='content container-fluid'>
-          <Boxes />
-          <QuickIcons />
+          <fadeIn>
+            <Boxes />
+            <QuickIcons />
+          </fadeIn>
         </section>
       </div>
+
       <Footer />
       {/* /.control-sidebar
           Add the sidebar's background. This div must be placed

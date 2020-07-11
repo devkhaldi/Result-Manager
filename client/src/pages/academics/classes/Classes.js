@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
 import Footer from '../../../components/Footer'
+import Modal from 'react-modal'
+import ClassForm from './ClassForm'
 
 const Classes = () => {
+  // control modal
+  const [update, setUpdate] = useState(true)
+
   return (
     <React.Fragment>
+      <ClassForm update={update} />
       <Header />
       <AcademicsSidebar />
       <div className='content-wrapper'>
@@ -17,8 +23,15 @@ const Classes = () => {
           </h1>
           <a
             href='#'
-            style={{ float: 'right', position: 'relative', top: '-25px' }}
-            className='btn btn-primary '>
+            style={{
+              float: 'right',
+              position: 'relative',
+              top: '-25px',
+            }}
+            className='btn btn-primary '
+            data-toggle='modal'
+            data-target='#modal-default'
+            onClick={e => setUpdate(false)}>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
             Add class
           </a>
@@ -29,14 +42,14 @@ const Classes = () => {
               <div className='box-title'>Classes list</div>
               <div className='box-tools'>
                 <form>
-                  <div className='input-group  input-group-sm'>
+                  <div className='input-group input-group-sm'>
                     <input
                       type='text'
                       style={{ width: '150px' }}
-                      class='form-control pull-right'
+                      className='form-control pull-right'
                     />
-                    <span class='input-group-btn'>
-                      <button type='button' class='btn btn-default btn-flat'>
+                    <span className='input-group-btn'>
+                      <button type='button' className='btn btn-default btn-flat'>
                         <i className='fa fa-search'></i>
                       </button>
                     </span>
@@ -64,7 +77,10 @@ const Classes = () => {
                         <a
                           href='#'
                           className='btn btn-sm btn-info'
-                          style={{ marginRight: '2px' }}>
+                          style={{ marginRight: '2px' }}
+                          data-toggle='modal'
+                          data-target='#modal-default'
+                          onClick={e => setUpdate(true)}>
                           <i className='fa fa-pencil'></i>
                         </a>
                         <a href='#' className='btn btn-sm btn-danger'>

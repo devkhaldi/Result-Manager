@@ -2,12 +2,14 @@ import React from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
 import Footer from '../../../components/Footer'
+import SubjectForm from './SubjectForm'
 
 const Subjects = () => {
   return (
     <React.Fragment>
       <Header />
       <AcademicsSidebar />
+      <SubjectForm />
       <div className='content-wrapper'>
         <section className='content-header'>
           <h1>
@@ -17,7 +19,9 @@ const Subjects = () => {
           <a
             href='#'
             style={{ float: 'right', position: 'relative', top: '-25px' }}
-            className='btn btn-primary '>
+            className='btn btn-primary '
+            data-toggle='modal'
+            data-target='#modal-default'>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
             Add class
           </a>
@@ -32,10 +36,10 @@ const Subjects = () => {
                     <input
                       type='text'
                       style={{ width: '150px' }}
-                      class='form-control pull-right'
+                      className='form-control pull-right'
                     />
-                    <span class='input-group-btn'>
-                      <button type='button' class='btn btn-default btn-flat'>
+                    <span className='input-group-btn'>
+                      <button type='button' className='btn btn-default btn-flat'>
                         <i className='fa fa-search'></i>
                       </button>
                     </span>
