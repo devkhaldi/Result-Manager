@@ -2,12 +2,14 @@ import React from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
 import Footer from '../../../components/Footer'
+import ExamForm from './ExamForm'
 
 const Exams = () => {
   return (
     <React.Fragment>
       <Header />
       <AcademicsSidebar />
+      <ExamForm />
       <div className='content-wrapper'>
         <section className='content-header'>
           <h1>
@@ -17,7 +19,9 @@ const Exams = () => {
           <a
             href='#'
             style={{ float: 'right', position: 'relative', top: '-25px' }}
-            className='btn btn-primary '>
+            className='btn btn-primary '
+            data-toggle='modal'
+            data-target='#modal-default'>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
             Add class
           </a>
@@ -32,7 +36,7 @@ const Exams = () => {
                     <input
                       type='text'
                       style={{ width: '150px' }}
-                      class='form-control pull-right'
+                      className='form-control pull-right'
                     />
                     <span class='input-group-btn'>
                       <button type='button' class='btn btn-default btn-flat'>

@@ -17,6 +17,7 @@ const SubjectForm = () => {
             </div>
           </div>
         </div>
+        {/* modal footer */}
         <div className='box-footer'>
           <div className='row'>
             <div className='col-md-10 '>

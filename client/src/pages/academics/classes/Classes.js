@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
 import Footer from '../../../components/Footer'
-import Modal from 'react-modal'
 import ClassForm from './ClassForm'
 
 const Classes = () => {
@@ -28,7 +27,7 @@ const Classes = () => {
               position: 'relative',
               top: '-25px',
             }}
-            className='btn btn-primary '
+            className='btn btn-primary'
             data-toggle='modal'
             data-target='#modal-default'
             onClick={e => setUpdate(false)}>
@@ -57,7 +56,7 @@ const Classes = () => {
                 </form>
               </div>
             </div>
-            <div className='box-body  no-padding'>
+            <div className='box-body no-padding'>
               <table className='table table-hover'>
                 <tbody>
                   <tr>

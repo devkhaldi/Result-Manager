@@ -20,10 +20,8 @@ const Dashboard = () => {
           </h1>
         </section>
         <section className='content container-fluid'>
-          <fadeIn>
-            <Boxes />
-            <QuickIcons />
-          </fadeIn>
+          <Boxes />
+          <QuickIcons />
         </section>
       </div>
 
