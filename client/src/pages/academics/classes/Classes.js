@@ -6,7 +6,7 @@ import ClassForm from './ClassForm'
 
 const Classes = () => {
   // control modal
-  const [update, setUpdate] = useState(true)
+  const [update, setUpdate] = useState(null)
 
   return (
     <React.Fragment>
@@ -20,17 +20,14 @@ const Classes = () => {
             Classes list
             <small>Add, edit, delete</small>
           </h1>
+          {/* Add new Class button */}
           <a
             href='#'
-            style={{
-              float: 'right',
-              position: 'relative',
-              top: '-25px',
-            }}
+            style={{ float: 'right', position: 'relative', top: '-25px' }}
             className='btn btn-primary'
             data-toggle='modal'
             data-target='#modal-default'
-            onClick={e => setUpdate(false)}>
+            onClick={e => setUpdate(null)}>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
             Add class
           </a>
@@ -79,7 +76,7 @@ const Classes = () => {
                           style={{ marginRight: '2px' }}
                           data-toggle='modal'
                           data-target='#modal-default'
-                          onClick={e => setUpdate(true)}>
+                          onClick={e => setUpdate(cl)}>
                           <i className='fa fa-pencil'></i>
                         </a>
                         <a href='#' className='btn btn-sm btn-danger'>
@@ -104,8 +101,8 @@ const Classes = () => {
 }
 
 const classList = [
-  { id: 1, title: 'One', subjects: ['Bangla', 'English', 'Math'] },
-  { id: 2, title: 'Two', subjects: ['Bangla', 'English', 'Math'] },
+  { id: 1, title: 'One', subjects: ['Bangla', 'English', 'Math'], optionalSubjects: [] },
+  { id: 2, title: 'Two', subjects: ['Bangla', 'English', 'Math'], optionalSubjects: [] },
 ]
 
 export default Classes

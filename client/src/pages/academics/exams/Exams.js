@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
 import Footer from '../../../components/Footer'
 import ExamForm from './ExamForm'
 
 const Exams = () => {
+  // control modal
+  const [update, setupdate] = useState(null)
+
+  useEffect(() => {
+    console.log(update)
+  }, [update])
+
   return (
     <React.Fragment>
       <Header />
       <AcademicsSidebar />
-      <ExamForm />
+      <ExamForm update={update} />
       <div className='content-wrapper'>
         <section className='content-header'>
           <h1>
@@ -21,7 +28,8 @@ const Exams = () => {
             style={{ float: 'right', position: 'relative', top: '-25px' }}
             className='btn btn-primary '
             data-toggle='modal'
-            data-target='#modal-default'>
+            data-target='#modal-default'
+            onClick={e => setupdate(null)}>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
             Add class
           </a>
@@ -32,14 +40,14 @@ const Exams = () => {
               <div className='box-title'>Exams list</div>
               <div className='box-tools'>
                 <form>
-                  <div className='input-group  input-group-sm'>
+                  <div className='input-group input-group-sm'>
                     <input
                       type='text'
                       style={{ width: '150px' }}
                       className='form-control pull-right'
                     />
-                    <span class='input-group-btn'>
-                      <button type='button' class='btn btn-default btn-flat'>
+                    <span className='input-group-btn'>
+                      <button type='button' className='btn btn-default btn-flat'>
                         <i className='fa fa-search'></i>
                       </button>
                     </span>
@@ -63,7 +71,10 @@ const Exams = () => {
                         <a
                           href='#'
                           className='btn btn-sm btn-info'
-                          style={{ marginRight: '2px' }}>
+                          style={{ marginRight: '2px' }}
+                          data-toggle='modal'
+                          data-target='#modal-default'
+                          onClick={e => setupdate(exam)}>
                           <i className='fa fa-pencil'></i>
                         </a>
                         <a href='#' className='btn btn-sm btn-danger'>
