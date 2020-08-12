@@ -2,10 +2,12 @@ import React from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
 import Footer from '../../../components/Footer'
+import GradeForm from './GradeForm'
 
 const Grades = () => {
   return (
     <React.Fragment>
+      <GradeForm />
       <Header />
       <AcademicsSidebar />
       <div className='content-wrapper'>
@@ -17,7 +19,9 @@ const Grades = () => {
           <a
             href='#'
             style={{ float: 'right', position: 'relative', top: '-25px' }}
-            className='btn btn-primary '>
+            className='btn btn-primary '
+            data-toggle='modal'
+            data-target='#modal-default'>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
             Add class
           </a>
@@ -61,7 +65,9 @@ const Grades = () => {
                         <a
                           href='#'
                           className='btn btn-sm btn-info'
-                          style={{ marginRight: '2px' }}>
+                          style={{ marginRight: '2px' }}
+                          data-toggle='modal'
+                          data-target='#modal-default'>
                           <i className='fa fa-pencil'></i>
                         </a>
                         <a href='#' className='btn btn-sm btn-danger'>
