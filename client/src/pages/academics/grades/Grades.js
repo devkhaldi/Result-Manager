@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
 import Footer from '../../../components/Footer'
 import GradeForm from './GradeForm'
 
 const Grades = () => {
+  const [update, setupdate] = useState(null)
   return (
     <React.Fragment>
-      <GradeForm />
+      <GradeForm update={update} />
       <Header />
       <AcademicsSidebar />
       <div className='content-wrapper'>
@@ -21,9 +22,10 @@ const Grades = () => {
             style={{ float: 'right', position: 'relative', top: '-25px' }}
             className='btn btn-primary '
             data-toggle='modal'
-            data-target='#modal-default'>
+            data-target='#modal-default'
+            onClick={e => setupdate(null)}>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
-            Add class
+            Add grade
           </a>
         </section>
         <section className='content container-fluid'>
@@ -67,7 +69,8 @@ const Grades = () => {
                           className='btn btn-sm btn-info'
                           style={{ marginRight: '2px' }}
                           data-toggle='modal'
-                          data-target='#modal-default'>
+                          data-target='#modal-default'
+                          onClick={e => setupdate(grade)}>
                           <i className='fa fa-pencil'></i>
                         </a>
                         <a href='#' className='btn btn-sm btn-danger'>

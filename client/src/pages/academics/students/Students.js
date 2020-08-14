@@ -2,10 +2,12 @@ import React from 'react'
 import Header from '../../../components/Header'
 import AcademicsSidebar from '../../../components/AcademicsSidebar'
 import Footer from '../../../components/Footer'
+import StudentForm from './StudentForm'
 
 const Students = () => {
   return (
     <React.Fragment>
+      <StudentForm />
       <Header />
       <AcademicsSidebar />
       <div className='content-wrapper'>
@@ -17,9 +19,11 @@ const Students = () => {
           <a
             href='#'
             style={{ float: 'right', position: 'relative', top: '-25px' }}
-            className='btn btn-primary '>
+            className='btn btn-primary '
+            data-toggle='modal'
+            data-target='#modal-default'>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
-            Add class
+            Add student
           </a>
         </section>
         <section className='content container-fluid'>
