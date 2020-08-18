@@ -3,7 +3,6 @@ import Modal from '../../../components/Modal'
 
 const GradeForm = ({ update }) => {
   console.log(update)
-
   return (
     <Modal title='Subject form'>
       <form className='form-horizontal'>
@@ -30,11 +29,7 @@ const GradeForm = ({ update }) => {
                 <div className='col-sm-4 control-label'></div>
                 <div className='col-sm-8'>
                   <input type='submit' className='btn btn-primary' value='Submit' />
-                  <a
-                    style={{ marginLeft: '5px' }}
-                    className='btn btn-default'
-                    href=''
-                    title='Cancel'>
+                  <a style={{ marginLeft: '5px' }} className='btn btn-default' href='' title='Cancel'>
                     Cancel
                   </a>
                 </div>

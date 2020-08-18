@@ -16,12 +16,7 @@ const Students = () => {
             <i className='fa fa-users' style={{ marginRight: '7px' }}></i>
             Student list
           </h1>
-          <a
-            href='#'
-            style={{ float: 'right', position: 'relative', top: '-25px' }}
-            className='btn btn-primary '
-            data-toggle='modal'
-            data-target='#modal-default'>
+          <a href='#' style={{ float: 'right', position: 'relative', top: '-25px' }} className='btn btn-primary ' data-toggle='modal' data-target='#modal-default'>
             <i style={{ marginRight: '5px' }} className='fa fa-plus mx-auto'></i>
             Add student
           </a>
@@ -34,11 +29,7 @@ const Students = () => {
                   <div className='row'>
                     <div className='col-sm-3'>
                       <div className='input-group input-group-sm'>
-                        <input
-                          type='text'
-                          style={{ marginLeft: '10px' }}
-                          class='form-control pull-right'
-                        />
+                        <input type='text' style={{ marginLeft: '10px' }} class='form-control pull-right' />
                         <span class='input-group-btn'>
                           <button type='button' class='btn btn-default btn-flat'>
                             <i className='fa fa-search'></i>
@@ -65,9 +56,7 @@ const Students = () => {
                       </div>
                     </div>
                     <div className='col-sm-3'>
-                      <div
-                        className='form-group'
-                        style={{ position: 'relative', top: '-6px' }}>
+                      <div className='form-group' style={{ position: 'relative', top: '-6px' }}>
                         <select class='form-control input-sm'>
                           <option>2015</option>
                           <option>2016</option>
@@ -106,10 +95,7 @@ const Students = () => {
                         <a href='#' className='btn btn-sm btn-primary'>
                           <i className='fa fa-eye'></i>
                         </a>
-                        <a
-                          href='#'
-                          className='btn btn-sm btn-info'
-                          style={{ marginRight: '5px', marginLeft: '5px' }}>
+                        <a href='#' className='btn btn-sm btn-info' style={{ marginRight: '5px', marginLeft: '5px' }}>
                           <i className='fa fa-pencil'></i>
                         </a>
                         <a href='#' className='btn btn-sm btn-danger'>
