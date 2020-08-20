@@ -7,7 +7,7 @@ const GradeForm = ({ update }) => {
     <Modal title='Subject form'>
       <form className='form-horizontal'>
         <div className='box-body'>
-          {/* Grade name */}
+          {/* Inputs*/}
           {inputs.map(inpt => (
             <div key={inpt.id} className='row'>
               <div className='col-md-10'>

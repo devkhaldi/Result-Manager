@@ -6,42 +6,19 @@ const StudentForm = () => {
     <Modal title='Subject form'>
       <form className='form-horizontal'>
         <div className='box-body'>
-          <div class='nav-tabs-custom'>
-            <ul class='nav nav-tabs'>
-              <li class='active'>
-                <a href='#tab_1' data-toggle='tab'>
-                  General
-                </a>
-              </li>
-              <li>
-                <a href='#tab_2' data-toggle='tab'>
-                  Academics info
-                </a>
-              </li>
-            </ul>
-            <div class='tab-content'>
-              <div class='tab-pane active' id='tab_1'>
-                <h1>General</h1>
-              </div>
-
-              <div class='tab-pane' id='tab_2'>
-                <h1>Academics info</h1>
-              </div>
-            </div>
-          </div>
-
-          {/* Grade name */}
-
-          <div className='row'>
-            <div className='col-md-10'>
-              <div className='form-group'>
-                <label className='col-sm-4 control-label'></label>
-                <div className='col-sm-8'>
-                  <input type='text' className='form-control' />
+          {/* Inputs*/}
+          {inputs.map(inpt => (
+            <div key={inpt.id} className='row'>
+              <div className='col-md-10'>
+                <div className='form-group'>
+                  <label className='col-sm-4 control-label'>{inpt.label}</label>
+                  <div className='col-sm-8'>
+                    <input type='text' id={inpt.id} className='form-control' />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
         {/* modal footer */}
         <div className='box-footer'>
@@ -63,5 +40,27 @@ const StudentForm = () => {
     </Modal>
   )
 }
+
+const inputs = [
+  { id: 'firstName', label: 'First name' },
+  { id: 'middleName', label: 'Middle name' },
+  { id: 'lastName', label: 'Last name' },
+  { id: 'adress', label: 'Adress' },
+  { id: 'region', label: 'Region' },
+  { id: 'district', label: 'District' },
+  { id: 'country', label: 'Country' },
+  { id: 'fatherName', label: 'Father name' },
+  { id: 'fatherPhone', label: 'Father phone' },
+  { id: 'motherName', label: 'Mother name' },
+  { id: 'motherPhone', label: 'Mother Phone' },
+  { id: 'guardianName', label: 'Guardian name' },
+  { id: 'guardianPhone', label: 'Guardian phone' },
+  { id: 'dateBirth', label: 'Date birth' },
+  { id: 'email', label: 'Email' },
+  { id: 'sex', label: 'Sex' },
+  { id: 'dateJoining', label: 'Date joining' },
+  { id: 'class', label: 'Class' },
+  { id: 'section', label: 'Section' },
+]
 
 export default StudentForm
