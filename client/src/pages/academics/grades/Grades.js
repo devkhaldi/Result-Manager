@@ -35,11 +35,7 @@ const Grades = () => {
               <div className='box-tools'>
                 <form>
                   <div className='input-group  input-group-sm'>
-                    <input
-                      type='text'
-                      style={{ width: '150px' }}
-                      class='form-control pull-right'
-                    />
+                    <input type='text' style={{ width: '150px' }} class='form-control pull-right' />
                     <span class='input-group-btn'>
                       <button type='button' class='btn btn-default btn-flat'>
                         <i className='fa fa-search'></i>
@@ -64,13 +60,7 @@ const Grades = () => {
                       <td className='text-center'>{grade.from}</td>
                       <td className='text-center'>{grade.upto}</td>
                       <td className='text-right'>
-                        <a
-                          href='#'
-                          className='btn btn-sm btn-info'
-                          style={{ marginRight: '2px' }}
-                          data-toggle='modal'
-                          data-target='#modal-default'
-                          onClick={e => setupdate(grade)}>
+                        <a href='#' className='btn btn-sm btn-info' style={{ marginRight: '2px' }} data-toggle='modal' data-target='#modal-default' onClick={e => setupdate(grade)}>
                           <i className='fa fa-pencil'></i>
                         </a>
                         <a href='#' className='btn btn-sm btn-danger'>
